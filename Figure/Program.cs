@@ -4,10 +4,6 @@ namespace SandBox
 {
     public class Figure
     {
-        public double A { get; set; }
-        public double B { get; set; }
-        public double C { get; set; }
-
         public virtual double Square()
         {
             return 0;
@@ -16,6 +12,9 @@ namespace SandBox
 
     public class Treangle : Figure
     {
+        public double A { get; set; }
+        public double B { get; set; }
+        public double C { get; set; }
 
         /// <summary>
         /// Создание треугольника
