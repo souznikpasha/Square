@@ -1,20 +1,45 @@
 ﻿using System;
 
-namespace SandBox
+namespace Figure
 {
-    public class Figure
+    public abstract class Figure
     {
         public virtual double Square()
         {
             return 0;
         }
+        public virtual bool IsCorrectRectangle()
+        {
+            return false;
+        }
     }
 
+    public class Circle : Figure
+    {
+        private readonly double _radius;
+
+        public Circle(double radius)
+        {
+            this._radius = radius;
+            if (this._radius<= 0)
+            {
+                throw new InvalidCastException
+                    ("Радиус должен быть больше 0");
+            }
+        }
+
+        public override double Square()
+        {
+            var s = Math.PI * _radius;
+            return s;
+        }
+    }
+    
     public class Treangle : Figure
     {
-        public double A { get; set; }
-        public double B { get; set; }
-        public double C { get; set; }
+        private readonly double _a;
+        private readonly double _b;
+        private readonly double _c;
 
         /// <summary>
         /// Создание треугольника
@@ -24,35 +49,40 @@ namespace SandBox
         /// <param name="c">Гипотинуза</param>
         public Treangle(double a, double b, double c)
         {
-            this.A = a;
-            this.B = b;
-            this.C = c;
+            this._a = a;
+            this._b = b;
+            this._c = c;
+            if (this._a <= 0 || this._b <= 0 || this._c <= 0)
+            {
+                throw new InvalidCastException
+                    ("Стороны треугольника должны быть больше 0");
+            }
         }
 
         public override double Square()
         {
-            var p = (A + B + C) / 2;
+            var p = (_a + _b + _c) / 2;
             if (p == 0)
                 return 0;
-            var s = Math.Sqrt(p * (p - A) * (p - B) * (p - C));
+            var s = Math.Sqrt(p * (p - _a) * (p - _b) * (p - _c));
             if (double.IsNaN(s))
                 return 0;
             return s;
         }
 
-        public bool RightTriangle()
+        public override bool IsCorrectRectangle()
         {
-            if (Math.Abs(Math.Pow(A, 2) + Math.Pow(B, 2) - Math.Pow(C, 2)) == 0)
-                return true;
-            return false;
+            return Math.Abs(Math.Pow(_a, 2) + Math.Pow(_b, 2) - Math.Pow(_c, 2)) == 0;
         }
 
         private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            Treangle treangle = new Treangle(6, 8, 10);
+            Treangle treangle = new Treangle(7, 8, 10);
             Console.WriteLine(treangle.Square());
-            Console.WriteLine(treangle.RightTriangle());
+            Console.WriteLine(treangle.IsCorrectRectangle());
+
+            Circle circle = new Circle(5);
+            Console.WriteLine(circle.Square());
         }
     }
 }

@@ -1,4 +1,4 @@
-using SandBox;
+using Figure;
 using NUnit.Framework;
 
 namespace TestFigure
@@ -27,19 +27,31 @@ namespace TestFigure
         public void RightTriangle1()
         {
             Treangle treangle = new Treangle(7,8,4);
-            Assert.AreEqual(false, treangle.RightTriangle());
+            Assert.AreEqual(false, treangle.IsCorrectRectangle());
         }
         [Test]
         public void RightTriangle2()
         {
             Treangle treangle = new Treangle(7,2,4);
-            Assert.AreEqual(false, treangle.RightTriangle());
+            Assert.AreEqual(false, treangle.IsCorrectRectangle());
         }
         [Test]
         public void RightTriangle3()
         {
             Treangle treangle = new Treangle(6, 8, 10);
-            Assert.AreEqual(true, treangle.RightTriangle());
+            Assert.AreEqual(true, treangle.IsCorrectRectangle());
+        }
+        [Test]
+        public void Circle1()
+        {
+            Circle circle = new Circle(5);
+            Assert.AreEqual(15.707963267948966d, circle.Square());
+        }
+        [Test]
+        public void Circle2()
+        {
+            Circle circle = new Circle(20);
+            Assert.AreEqual(62.831853071795862d , circle.Square());
         }
     }
 }
