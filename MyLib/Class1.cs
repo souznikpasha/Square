@@ -35,7 +35,7 @@ namespace Figure
         }
     }
     
-    public class Treangle : Figure
+    public class Triangle : Figure
     {
         private readonly double _a;
         private readonly double _b;
@@ -47,7 +47,7 @@ namespace Figure
         /// <param name="a">Катет</param>
         /// <param name="b">Катет</param>
         /// <param name="c">Гипотинуза</param>
-        public Treangle(double a, double b, double c)
+        public Triangle(double a, double b, double c)
         {
             this._a = a;
             this._b = b;
@@ -77,9 +77,9 @@ namespace Figure
 
         private static void Main(string[] args)
         {
-            Treangle treangle = new Treangle(7, 8, 10);
-            Console.WriteLine(treangle.Square());
-            Console.WriteLine(treangle.IsCorrectRectangle());
+            Triangle triangle = new Triangle(7, 8, 10);
+            Console.WriteLine(triangle.Square());
+            Console.WriteLine(triangle.IsCorrectRectangle());
 
             Circle circle = new Circle(5);
             Console.WriteLine(circle.Square());

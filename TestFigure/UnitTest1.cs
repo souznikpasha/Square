@@ -8,38 +8,38 @@ namespace TestFigure
         [Test]
         public void Square1()
         {
-            Treangle treangle = new Treangle(7,8,4);
-            Assert.AreEqual(13.997767679169419, treangle.Square());
+            Triangle triangle = new Triangle(7,8,4);
+            Assert.AreEqual(13.997767679169419, triangle.Square());
         }
         [Test]
         public void Square2()
         {
-            Treangle treangle = new Treangle(7,2,4);
-            Assert.AreEqual(0, treangle.Square());
+            Triangle triangle = new Triangle(7,2,4);
+            Assert.AreEqual(0, triangle.Square());
         }
         [Test]
         public void Square3()
         {
-            Treangle treangle = new Treangle(4,2,2);
-            Assert.AreEqual(0, treangle.Square());
+            Triangle triangle = new Triangle(4,2,2);
+            Assert.AreEqual(0, triangle.Square());
         }
         [Test]
         public void RightTriangle1()
         {
-            Treangle treangle = new Treangle(7,8,4);
-            Assert.AreEqual(false, treangle.IsCorrectRectangle());
+            Triangle triangle = new Triangle(7,8,4);
+            Assert.AreEqual(false, triangle.IsCorrectRectangle());
         }
         [Test]
         public void RightTriangle2()
         {
-            Treangle treangle = new Treangle(7,2,4);
-            Assert.AreEqual(false, treangle.IsCorrectRectangle());
+            Triangle triangle = new Triangle(7,2,4);
+            Assert.AreEqual(false, triangle.IsCorrectRectangle());
         }
         [Test]
         public void RightTriangle3()
         {
-            Treangle treangle = new Treangle(6, 8, 10);
-            Assert.AreEqual(true, treangle.IsCorrectRectangle());
+            Triangle triangle = new Triangle(6, 8, 10);
+            Assert.AreEqual(true, triangle.IsCorrectRectangle());
         }
         [Test]
         public void Circle1()
